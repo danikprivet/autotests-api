@@ -14,7 +14,7 @@ class GetExercisesQueryDict(TypedDict):
 
 class CreateExerciseRequestDict(TypedDict):
     """
-    Описание структуры запроса на создание курса.
+    Описание структуры запроса на создание задания.
     """
     title: str
     courseId: str
@@ -76,7 +76,7 @@ class ExercisesClient(APIClient):
         :param request: Словарь с title, maxScore, minScore, orderIndex, description, estimatedTime.
         :return: Ответ от сервера в виде объекта httpx.Response.
         """
-        return self.patch(f"/api/v1/courses/{exercise_id}", json=request)
+        return self.patch(f"/api/v1/exercises/{exercise_id}", json=request)
 
     def delete_exercise_api(self, exercise_id: str) -> Response:
         """
