@@ -42,9 +42,10 @@ class CoursesClient(APIClient):
     """
     def get_courses_api(self, query: GetCoursesQueryDict) -> Response:
         """
-        Метод получения курсов
-        :param query:
-        :return:
+        Метод получения списка курсов.
+
+        :param query: Словарь с userId.
+        :return: Ответ от сервера в виде объекта httpx.Response
         """
         return self.get("/api/v1/courses", params=query)
 
@@ -53,7 +54,7 @@ class CoursesClient(APIClient):
         Метод получения курса.
 
         :param course_id: Идентификатор курса.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :return: Ответ от сервера в виде объекта httpx.Response.
         """
         return self.get(f"/api/v1/courses/{course_id}")
 
@@ -63,7 +64,7 @@ class CoursesClient(APIClient):
 
         :param request: Словарь с title, maxScore, minScore, description, estimatedTime,
         previewFileId, createdByUserId.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :return: Ответ от сервера в виде объекта httpx.Response.
         """
         return self.post("/api/v1/courses,", json=request)
 
@@ -73,7 +74,7 @@ class CoursesClient(APIClient):
 
         :param course_id: Идентификатор курса.
         :param request: Словарь с title, maxScore, minScore, description, estimatedTime.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :return: Ответ от сервера в виде объекта httpx.Response.
         """
         return self.patch(f"/api/v1/courses/{course_id}", json=request)
 
@@ -82,6 +83,6 @@ class CoursesClient(APIClient):
         Метод удаления курса.
 
         :param course_id: Идентификатор курса.
-        :return: Ответ от сервера в виде объекта httpx.Response
+        :return: Ответ от сервера в виде объекта httpx.Response.
         """
         return self.delete(f"/api/v1/courses/{course_id}")
